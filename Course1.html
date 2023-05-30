@@ -102,28 +102,31 @@
 
         
    
-          <script>
-            const defaultIframe = 'iframe1';
-            displayIframe(defaultIframe);
+    <script>
+      var loginPageURL = 'https://finnmesa.github.io/online-course/';
+      if (document.referrer !== loginPageURL) {
+        window.location.href = loginPageURL;
+      } else {
+        const defaultIframe = 'iframe1';
+        displayIframe(defaultIframe);
+      }
+      function displayIframe(iframeId) {
+        const iframeDisplay = document.getElementById('iframe-display');
+        iframeDisplay.src = getIframeSource(iframeId);
+      }
+      function getIframeSource(iframeId) {
+        switch (iframeId) {
+          case 'iframe1':
+            return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
+          case 'iframe2':
+            return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
+          case 'iframe3':
+            return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
+          default:
+            return '';
+        }
+      }
+    </script>
 
-            function displayIframe(iframeId) {
-              const iframeDisplay = document.getElementById('iframe-display');
-              iframeDisplay.src = getIframeSource(iframeId);
-            }
-        
-            function getIframeSource(iframeId) {
-              // Return the appropriate iframe source URL based on the iframeId
-              switch (iframeId) {
-                case 'iframe1':
-                  return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
-                case 'iframe2':
-                  return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
-                case 'iframe3':
-                  return 'https://www.youtube.com/embed/UsrnWH7qgXI?controls=0';
-                default:
-                  return '';
-              }
-            }
-          </script>
 </body>
 </html>
